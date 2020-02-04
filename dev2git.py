@@ -21,7 +21,18 @@ title = str(title).strip("<h1 id=\"app-title\">").strip("</")
 subtitle = soup.find("p", attrs={'class': "large"})
 subtitle = str(subtitle).strip("<p class=\"large\">").strip("</").lstrip().rstrip()
 
-# Heading & Text Parsing
+# Heading Parsing
+headings = (soup.findAll("h2"))
+for heading in headings:
+    temp = str(heading)
+    temp = temp[temp.find('>') + 1:]
+    temp = temp[:temp.find('<')]
+    finalHeadings.append(temp)
+# Text Parsing
+# textBody = soup.findAll("p")
+# print(textBody)
+# for elem in textBody:
+#     print(elem)
 
 # Image parsing
 
